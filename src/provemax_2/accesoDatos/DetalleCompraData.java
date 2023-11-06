@@ -28,7 +28,7 @@ public class DetalleCompraData {
               
     }
    public ArrayList<DetalleCompra> buscarDetallePorCompra(Compra compra){
-        String sql= " SELECT idDetalle, cantidad, precioCosto , idProducto, idCompra * FROM detalleCompra WHERE idCompra  = 0";
+        String sql= " SELECT idDetalle, cantidad, precioCosto , idProducto FROM detalleCompra WHERE idCompra=? ";
         ArrayList<DetalleCompra> detalles= new ArrayList<>();
        try{
           PreparedStatement ps= con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -95,7 +95,7 @@ public class DetalleCompraData {
     
    
    }
-//}
+//
 //      public List<DetalleCompra> obtenerCompraRealizadas(int idCompra){ 
 //       
 //            List<DetalleCompra> listaComRealizada = new ArrayList<>();

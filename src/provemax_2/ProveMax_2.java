@@ -6,6 +6,7 @@
 package provemax_2;
 
 import java.time.LocalDate;
+import java.time.Month;
 import provemax_2.accesoDatos.CompraData;
 import provemax_2.accesoDatos.DetalleCompraData;
 import provemax_2.accesoDatos.ProductoData;
@@ -161,14 +162,27 @@ public class ProveMax_2 {
 
 
 //       
-//          
+//          Compra compra=new Compra();
+//          Producto producto = new Producto();
 //          DetalleCompra detalle = new DetalleCompra(15, 100000, compra, producto);
 //          DetalleCompraData detaData = new DetalleCompraData();
 //          detaData.guardarDetalleCompra(detalle);
 //          if (detalle!=null) {
 //              System.out.println("Detalle guardado correctamente");
 //            
-//        }
+//        } 
+          
+        DetalleCompraData deta = new DetalleCompraData();
+        Compra compra = new Compra();
+        compra.setIdCompra(2);
+        for (DetalleCompra detalle :deta.buscarDetallePorCompra(compra)) {
+            System.out.println(" Id de detalle : " + detalle.getIdDetalle());
+            System.out.println(" Cantidad : " +  detalle.getCantidad());
+            System.out.println(" Precio de costo : : " + detalle.getPrecioCosto());
+            System.out.println(" Producto : " + detalle.getProducto());
+            System.out.println("-------------------------------------------------------------------");
+        }
+
 
     }
 }
