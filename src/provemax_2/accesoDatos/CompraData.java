@@ -59,31 +59,30 @@ public class CompraData {
         }
         
    }
-        
-    
-    public Compra obtenerCompraPorId(int id) { // no corre ver
+       public Compra buscarCompra(int idCompra) { // funciona
         Compra compra = null;
-
+        String sql = "SELECT * FROM compra WHERE idCompra = ?";
         try {
-            String sql = " SELECT * FROM compra WHERE idCompra = ? ";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, idCompra);
             ResultSet rs = ps.executeQuery();
-         
+
             if (rs.next()) {
                 compra = new Compra();
-                compra.setIdCompra(id);
-                Proveedor prov = new Proveedor();
-                prov.setIdProveedor(rs.getInt("idProveedor"));
+                compra.setIdCompra(rs.getInt("idCompra"));
+                Proveedor prov = provData.buscarProveedorPorId(rs.getInt("idProveedor"));
                 compra.setProveedor(prov);
                 compra.setFecha(rs.getDate("fecha").toLocalDate());
             }
+            ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al buscar compra: " + ex.getMessage());
         }
         return compra;
-       
     }
+    
+       
+       
     
       public ArrayList<Compra> listarComprasActivas(){ // funciona
          String sql = "SELECT idCompra, idProveedor,fecha, estado FROM compra WHERE estado = 1";

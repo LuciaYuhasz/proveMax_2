@@ -21,75 +21,47 @@ import provemax_2.entidades.Producto;
  * @author Usuario
  */
 public class DetalleCompraData {
+    
+    private CompraData comData = new CompraData();
+    private ProveedorData provData = new ProveedorData();
+    private ProductoData prodData = new ProductoData();
+    
      private Connection con = null;
-    ProductoData prodData = new ProductoData();
+  
     public DetalleCompraData() {
         con = Conexion.getConexion();
               
     }
-//   public ArrayList<DetalleCompra> buscarDetallePorCompra(Compra compra){
-//        String sql= " SELECT idDetalle, cantidad, precioCosto , idProducto FROM detalleCompra WHERE idCompra=? ";
-//        ArrayList<DetalleCompra> detalles= new ArrayList<>();
-//       try{
-//          PreparedStatement ps= con.prepareStatement(sql);
-//          ps.setInt(1,compra.getIdCompra());
-//          
-//          ResultSet rs=ps.executeQuery();
-//          DetalleCompra detaCompra;
-//          Producto produc;
-//         while(rs.next()){
-//           produc = prodData.buscarProductoPorId(rs.getInt("idProducto")); 
-//           detaCompra = new DetalleCompra(rs.getInt("idDetalleCompra"),
-//                                         rs.getInt("cantidad"),
-//                                         rs.getDouble("precioCosto"),
-//                                        compra,produc);
-//           detalles.add(detaCompra);
-//           }
-//           ps.close();
-//         
-//       }  catch (SQLException ex) {
-//                JOptionPane.showMessageDialog(null,"error al acceder a la tabla" + ex.getMessage());
-//    }
-//   
-//    return detalles;
-//}
     
-       public ArrayList<DetalleCompra> buscarDetallePorCompra(Compra compra) {
-        String sql = "SELECT idDetalle, cantidad, precioCosto, idProducto FROM detalleCompra WHERE idCompra=?";
-        ArrayList<DetalleCompra> detalles = new ArrayList<>();
-
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, compra.getIdCompra());
-
-            ResultSet rs = ps.executeQuery();
-            DetalleCompra detaCompra;
-            Producto produc;
-
-            while (rs.next()) {
-                int idDetalle = rs.getInt("idDetalle");
-                int cantidad = rs.getInt("cantidad");
-                int precioCosto = rs.getInt("precioCosto");
-                int idProducto = rs.getInt("idProducto");
-
-                produc = prodData.buscarProductoPorId(idProducto);
-
-                detaCompra = new DetalleCompra(idDetalle, cantidad, precioCosto, compra, produc);
-                detalles.add(detaCompra);
-            }
-            ps.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla: " + ex.getMessage());
-        }
-
-        return detalles;
+   public ArrayList<DetalleCompra> listarDetallePorCompra(){  // no corre
+       ArrayList<DetalleCompra> listaDetalles =new ArrayList<>();
+        String sql= " SELECT * FROM detalleCompra ";
+    try {
+         PreparedStatement ps= con.prepareStatement(sql);
+         ResultSet rs=ps.executeQuery();
+         while(rs.next()){
+             DetalleCompra deta= new DetalleCompra();
+             deta.setIdDetalle(rs.getInt("idDetalleCompra"));
+             deta.setCantidad(rs.getInt("cantidad"));
+             deta.setPrecioCosto(rs.getDouble("precioCosto"));
+             Compra compra = comData.buscarCompra(rs.getInt("idCompra"));
+             deta.setCompra(compra);
+            Producto producto = prodData.buscarProductoPorId(rs.getInt("idProducto"));
+             deta.setProducto(producto);
+             listaDetalles.add(deta);
+         }
+         ps.close();
+     } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null,"Error al conectar con tabla de detalle compra "+ ex.getMessage());
+  }
+     return listaDetalles ;
     }
- 
+     
+
        
-       
-    public void guardarDetalleCompra(DetalleCompra detCom) {
+    public void guardarDetalleCompra(DetalleCompra detCom) { // no funciona
         String sql = " INSERT INTO detalleCompra (cantidad,precioCosto, idCompra,idProducto)"
-                + " VALUES (?,?,?,?,?) ";
+                + " VALUES (?,?,?,?) ";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, detCom.getIdDetalle());
@@ -109,6 +81,7 @@ public class DetalleCompraData {
            
         }
     }
+   
     
       public void modificarPrecioCosto(int idCompra, int idProducto, double precioCosto){ // funciona
         String sql= " UPDATE detalleCompra  SET precioCosto =? "
@@ -128,39 +101,4 @@ public class DetalleCompraData {
          }
       }
     
-   
    }
-//
-//      public List<DetalleCompra> obtenerCompraRealizadas(int idCompra){ 
-//       
-//            List<DetalleCompra> listaComRealizada = new ArrayList<>();
-//            String sql=" SELECT detallecompra.idProveedor, cuit, razonSocial, domicilio, telefono FROM detallecompra, proveedor, materia  "
-//                    +" WHERE detallecompra.idProveedor= proveedor.idProveedor AND detallecompra.idCompra =? ";
-//          
-//             try {
-//            
-//            PreparedStatement ps= con.prepareStatement(sql);
-//            
-//            ps.setInt(1, idCompra);
-//            ResultSet rs= ps.executeQuery();
-//            while(rs.next()){
-//                Proveedor prove=new Proveedor();
-//                prove.setIdProveedor(rs.getInt("idProveedor"));
-//                prove.setCuit(rs.getFloat("cuit"));
-//                prove.setRazonSocial(rs.getString("razonSocial"));
-//                prove.setDomicilio(rs.getString("domicilio"));
-//                prove.setTelefono(rs.getString("telefono"));
-//             //   listaComRealizada.add(prove);
-//                
-//            }
-//            ps.close();
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null,"error al aceeder a la tabla");
-//        }
-//       return listaComRealizada;
-//       }
-
-
-
- 
-
