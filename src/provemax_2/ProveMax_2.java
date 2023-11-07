@@ -6,6 +6,8 @@
 package provemax_2;
 
 import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
 import provemax_2.accesoDatos.CompraData;
 import provemax_2.accesoDatos.DetalleCompraData;
 import provemax_2.accesoDatos.ProductoData;
@@ -141,6 +143,8 @@ public class ProveMax_2 {
 //        }
 
 //------------------------ Trabajamos con la tabla compra-------------
+
+
 //            CompraData com = new CompraData();  // cargo compra
 //            ProveedorData proData = new ProveedorData();
 //            Proveedor provEnco = proData.buscarProveedorPorId(16);
@@ -150,6 +154,36 @@ public class ProveMax_2 {
 ////            nueva.isEstado();
 //            com.agregarCompra(nueva);
 
+
+
+//              CompraData comp = new CompraData();
+//              Proveedor prov = new Proveedor();
+//        for (Compra com : comp.listarComprasActivas()) {
+//            System.out.println(" Id de compra : " + com.getIdCompra());
+//            System.out.println(" Proveedor : " + com.getProveedor());
+//            System.out.println(" Fecha de compra  : " + com.getFecha());
+//            System.out.println("-------------------------------------------------------------------");
+//        }
+        
+        
+//              CompraData comp = new CompraData();
+//              Proveedor prov = new Proveedor();
+//        for (Compra com : comp.listarComprasInactivas()) {
+//            System.out.println(" Id de compra : " + com.getIdCompra());
+//            System.out.println(" Proveedor : " + com.getProveedor());
+//            System.out.println(" Fecha de compra  : " + com.getFecha());
+//            System.out.println("-------------------------------------------------------------------");
+//        }
+
+             CompraData comp = new CompraData(); // funciona
+             comp.borrarCompra(1);
+        
+        
+
+    
+    
+    
+    
 //----------------------TRABAJAMOS CON LA CLASE DETALLECOMPRADATA---------------
             
 //        DetalleCompra detalle = new DetalleCompra(); // modifico precio costo
@@ -160,15 +194,44 @@ public class ProveMax_2 {
 //        }
 
 
-//       
-//          
+       
+//          Compra compra=new Compra();
+//          Producto producto = new Producto();
 //          DetalleCompra detalle = new DetalleCompra(15, 100000, compra, producto);
 //          DetalleCompraData detaData = new DetalleCompraData();
 //          detaData.guardarDetalleCompra(detalle);
 //          if (detalle!=null) {
 //              System.out.println("Detalle guardado correctamente");
 //            
+//        } 
+          
+
+
+//        DetalleCompraData detalleCompraData = new DetalleCompraData(); // busco lista detalle de compra
+//        Compra compra = new Compra();
+//        compra.setIdCompra(2); 
+//
+//        ArrayList<DetalleCompra> detalles = detalleCompraData.buscarDetallePorCompra(compra);
+//
+//        for (DetalleCompra detalle : detalles) {
+//            System.out.println("Id de detalle: " + detalle.getIdDetalle());
+//            System.out.println("Cantidad: " + detalle.getCantidad());
+//            System.out.println("Precio de costo: " + detalle.getPrecioCosto());
+//            System.out.println("Producto: " + detalle.getProducto());
+//            System.out.println("-------------------------------------------------------------------");
+//        }
+
+//        DetalleCompraData detaData = new DetalleCompraData();
+//        DetalleCompra detalle = new DetalleCompra();
+//        ProductoData proData = new ProductoData();
+//        CompraData com = new CompraData();
+//        Producto provEnco = proData.buscarProductoPorId(1);
+//        Compra nueva = com.obtenerCompraPorId(1);
+//        detaData.guardarDetalleCompra(detalle);
+//        if (detalle != null) {
+//            System.out.println("Detalle guardado correctamente");
 //        }
 
     }
 }
+
