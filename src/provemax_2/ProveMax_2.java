@@ -233,19 +233,20 @@ public class ProveMax_2 {
 //            
 //        } 
           
-//        CompraData comData = new CompraData();  //lista detalle de compra
-//        ProveedorData provData = new ProveedorData();
-//        DetalleCompraData detaData = new DetalleCompraData();
-//        Compra compra = new Compra();
-//        for (DetalleCompra deta : detaData.listarDetallePorCompra()) {
-//            System.out.println("Id de detalle de compra : " + deta.getIdDetalle());
-//            System.out.println("Cantidad  : " + deta.getCantidad());
-//            System.out.println("Precio de  Costo: " + deta.getPrecioCosto());
-//            System.out.println("Id de compra: " + deta.getCompra().getIdCompra());
-//            System.out.println("Id de producto: " + deta.getProducto().getIdProducto());
-//        }
-//          
-//  }
+        CompraData comData = new CompraData();  //lista detalle de compra
+        ProveedorData provData = new ProveedorData();
+        DetalleCompraData detaData = new DetalleCompraData();
+        Compra compra = new Compra();
+        for (DetalleCompra deta : detaData.listarDetallePorCompra()) {
+            System.out.println("Id de detalle de compra : " + deta.getIdDetalle());
+            System.out.println("Cantidad  : " + deta.getCantidad());
+            System.out.println("Precio de  Costo: " + deta.getPrecioCosto());
+            System.out.println("Id de compra: " + deta.getCompra().getIdCompra());
+            System.out.println("Id de producto: " + deta.getProducto().getIdProducto());
+            System.out.println("------------------------------------------------------------------------------");
+        }
+          
+  
 
 //        DetalleCompraData detaData = new DetalleCompraData();
 //        DetalleCompra detalle = new DetalleCompra();

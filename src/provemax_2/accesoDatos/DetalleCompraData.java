@@ -41,7 +41,8 @@ public class DetalleCompraData {
          ResultSet rs=ps.executeQuery();
          while(rs.next()){
              DetalleCompra deta= new DetalleCompra();
-             deta.setIdDetalle(rs.getInt("idDetalleCompra"));
+
+//             deta.setIdDetalle(rs.getInt("idDetalleCompra"));
              deta.setCantidad(rs.getInt("cantidad"));
              deta.setPrecioCosto(rs.getDouble("precioCosto"));
              Compra compra = comData.buscarCompra(rs.getInt("idCompra"));
