@@ -7,6 +7,7 @@ package provemax_2.vistas;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,7 +20,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-        this.setTitle("Menu");
+          this.setTitle("MENU");
     }
 
     /**
@@ -31,11 +32,10 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        ImageIcon icon = new ImageIcon(getClass().getResource("/img/fondo.jpg"));
+        jPanel1 = new javax.swing.JPanel();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/fondo2.jpg"));
         Image image = icon.getImage();
-        jDEscritorio = new javax.swing.JDesktopPane(){
-
+        jDesktopPane1 = new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
                 g.drawImage(image,0,0,getWidth(),getHeight(),this);
             }
@@ -44,31 +44,133 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jrmProveedor = new javax.swing.JRadioButtonMenuItem();
+        jrmListadoProveedor = new javax.swing.JRadioButtonMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jrmCompra = new javax.swing.JRadioButtonMenuItem();
+        jrmListadoCompra = new javax.swing.JRadioButtonMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jrmDetalle = new javax.swing.JRadioButtonMenuItem();
+        jrmListadoDetalle = new javax.swing.JRadioButtonMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jrmExit = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jDEscritorio.setPreferredSize(new java.awt.Dimension(150, 50));
-
-        javax.swing.GroupLayout jDEscritorioLayout = new javax.swing.GroupLayout(jDEscritorio);
-        jDEscritorio.setLayout(jDEscritorioLayout);
-        jDEscritorioLayout.setHorizontalGroup(
-            jDEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 950, Short.MAX_VALUE)
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 809, Short.MAX_VALUE)
         );
-        jDEscritorioLayout.setVerticalGroup(
-            jDEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 427, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jDEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 510));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1)
+        );
 
-        jMenu1.setText("File");
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/producto.png"))); // NOI18N
+        jMenu1.setText("Producto");
+        jMenu1.setFont(new java.awt.Font("Arial Rounded MT Bold", 2, 12)); // NOI18N
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-agregar-administrador-50.png"))); // NOI18N
+        jMenu2.setText("Proveedor");
+        jMenu2.setFont(new java.awt.Font("Arial Rounded MT Bold", 2, 12)); // NOI18N
+
+        jrmProveedor.setSelected(true);
+        jrmProveedor.setText("Proveedores");
+        jrmProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrmProveedorActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jrmProveedor);
+
+        jrmListadoProveedor.setSelected(true);
+        jrmListadoProveedor.setText("Listado Proveedores");
+        jrmListadoProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrmListadoProveedorActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jrmListadoProveedor);
+
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-carrito-de-la-compra-cargado-48.png"))); // NOI18N
+        jMenu3.setText("Compra");
+        jMenu3.setFont(new java.awt.Font("Arial Rounded MT Bold", 2, 12)); // NOI18N
+
+        jrmCompra.setSelected(true);
+        jrmCompra.setText("Compras");
+        jrmCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrmCompraActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jrmCompra);
+
+        jrmListadoCompra.setSelected(true);
+        jrmListadoCompra.setText("Listado Compras");
+        jrmListadoCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrmListadoCompraActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jrmListadoCompra);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas.png"))); // NOI18N
+        jMenu4.setText("Detalle");
+        jMenu4.setFont(new java.awt.Font("Arial Rounded MT Bold", 2, 12)); // NOI18N
+
+        jrmDetalle.setSelected(true);
+        jrmDetalle.setText("Detalle Compra");
+        jrmDetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrmDetalleActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jrmDetalle);
+
+        jrmListadoDetalle.setSelected(true);
+        jrmListadoDetalle.setText("Listado Detalles");
+        jrmListadoDetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrmListadoDetalleActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jrmListadoDetalle);
+
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion.png"))); // NOI18N
+        jMenu5.setText("Salir");
+        jMenu5.setFont(new java.awt.Font("Arial Rounded MT Bold", 2, 12)); // NOI18N
+        jMenu5.setPreferredSize(new java.awt.Dimension(150, 50));
+
+        jrmExit.setSelected(true);
+        jrmExit.setText("Exit");
+        jrmExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrmExitActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jrmExit);
+
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -76,15 +178,75 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jrmProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmProveedorActionPerformed
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        Proveedor pro = new Proveedor();
+        pro.setVisible(true);
+        jDesktopPane1.add(pro);
+        jDesktopPane1.moveToFront(pro);
+    }//GEN-LAST:event_jrmProveedorActionPerformed
+
+    private void jrmCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmCompraActionPerformed
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        Compra comp = new Compra();
+        comp.setVisible(true);
+        jDesktopPane1.add(comp);
+        jDesktopPane1.moveToFront(comp);
+    }//GEN-LAST:event_jrmCompraActionPerformed
+
+    private void jrmDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmDetalleActionPerformed
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        DetalleCompra deta = new DetalleCompra();
+        deta.setVisible(true);
+        jDesktopPane1.add(deta);
+        jDesktopPane1.moveToFront(deta);
+    }//GEN-LAST:event_jrmDetalleActionPerformed
+
+    private void jrmExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmExitActionPerformed
+         JOptionPane.showMessageDialog(this, "SU CARGA HA SIDO EXITOSA");
+        Login salida = new Login();
+        salida.setVisible(true);
+    }//GEN-LAST:event_jrmExitActionPerformed
+
+    private void jrmListadoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmListadoProveedorActionPerformed
+         jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        ListadoProveedor listprov = new ListadoProveedor();
+        listprov.setVisible(true);
+        jDesktopPane1.add(listprov);
+        jDesktopPane1.moveToFront(listprov);
+    }//GEN-LAST:event_jrmListadoProveedorActionPerformed
+
+    private void jrmListadoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmListadoCompraActionPerformed
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        ListadoCompra listcomp = new ListadoCompra();
+        listcomp.setVisible(true);
+        jDesktopPane1.add(listcomp);
+        jDesktopPane1.moveToFront(listcomp);
+    }//GEN-LAST:event_jrmListadoCompraActionPerformed
+
+    private void jrmListadoDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmListadoDetalleActionPerformed
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        ListadoDetalle listdeta = new ListadoDetalle();
+        listdeta.setVisible(true);
+        jDesktopPane1.add(listdeta);
+        jDesktopPane1.moveToFront(listdeta);
+    }//GEN-LAST:event_jrmListadoDetalleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,10 +284,20 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDEscritorio;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButtonMenuItem jrmCompra;
+    private javax.swing.JRadioButtonMenuItem jrmDetalle;
+    private javax.swing.JRadioButtonMenuItem jrmExit;
+    private javax.swing.JRadioButtonMenuItem jrmListadoCompra;
+    private javax.swing.JRadioButtonMenuItem jrmListadoDetalle;
+    private javax.swing.JRadioButtonMenuItem jrmListadoProveedor;
+    private javax.swing.JRadioButtonMenuItem jrmProveedor;
     // End of variables declaration//GEN-END:variables
 }
