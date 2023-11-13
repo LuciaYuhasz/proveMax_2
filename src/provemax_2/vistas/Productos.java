@@ -5,6 +5,7 @@
  */
 package provemax_2.vistas;
 
+import javax.swing.JOptionPane;
 import provemax_2.accesoDatos.ProductoData;
 import provemax_2.entidades.Producto;
 
@@ -59,6 +60,11 @@ public class Productos extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, -1));
 
         jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/modificar.png"))); // NOI18N
@@ -66,9 +72,19 @@ public class Productos extends javax.swing.JInternalFrame {
         jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
 
         jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
 
         jbAgregar.setText("Agregar");
+        jbAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAgregarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lupa-30.png"))); // NOI18N
@@ -94,21 +110,20 @@ public class Productos extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Precio Actual ");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
-
-        jtCodigoProducto.setText("jTextField1");
         jPanel1.add(jtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 240, -1));
 
-        jtNombreProducto.setText("jTextField1");
+        jtNombreProducto.setText("televisor Sony");
         jPanel1.add(jtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 80, 250, -1));
-
-        jtDescripcionProducto.setText("jTextField1");
         jPanel1.add(jtDescripcionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 120, 250, -1));
-
-        jtPrecioProducto.setText("jTextField1");
         jPanel1.add(jtPrecioProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 160, 270, -1));
 
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-eliminar-50.png"))); // NOI18N
         jbEliminar.setText("Elimininar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 130, 40));
 
         jcEstado.setText("Estado");
@@ -116,14 +131,10 @@ public class Productos extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Stock");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-
-        jtStock.setText("jTextField1");
         jPanel1.add(jtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 170, -1));
 
         jLabel6.setText("Stock Minimo");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
-
-        jtStockMinimo.setText("jTextField1");
         jPanel1.add(jtStockMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,24 +156,92 @@ public class Productos extends javax.swing.JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
       
+        try{
+            Integer idProducto=Integer.parseInt(jtCodigoProducto.getText());
         
-        String nombreProducto=jtNombreProducto.getText();
-        productoActual=producData.buscarProductosPorNombre(nombreProducto);
+        productoActual=producData.buscarProductoPorId(idProducto);
         if(productoActual!=null){
             
-            int Codigo =Integer.parseInt(jtCodigoProducto.getText());
-             jtNombreProducto.setText(productoActual.getDescripcion());
+            
+             jtNombreProducto.setText(productoActual.getNombreProducto());
             jtDescripcionProducto.setText(productoActual.getDescripcion());
             
-            int Precio=Integer.parseInt(jtPrecioProducto.getText());
-            int Stock= Integer.parseInt(jtStock.getText());
+            
+            double precioActual = Double.parseDouble(jtPrecioProducto.getText());
+            
+            int stock= Integer.parseInt(jtStock.getText());
+            int stockMinimo= Integer.parseInt(jtStockMinimo.getText());
             jcEstado.setSelected(productoActual.isEstado());
+        }
+        }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null,"Debe ingresar un numero valido");
             
           
+            
          
-        }
+        }}
+        
+        private void limpiarCampos(){
+            
+        
+        jtDescripcionProducto.setText("");
+        jtNombreProducto.setText("");
+        jtPrecioProducto.setText("");
+        jtStock.setText("");
+        jtStockMinimo.setText("");
+        jcEstado.setSelected(true);
+        
+    
       
     }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+
+      limpiarCampos();
+      productoActual=null;
+
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
+
+
+        String nombreProducto=jtNombreProducto.getText();
+        String descripcion=jtDescripcionProducto.getText();
+        double precioActual = Double.parseDouble(jtPrecioProducto.getText());
+        Integer stock=Integer.parseInt(jtStock.getText());
+        Integer stockMinimo= Integer.parseInt(jtStockMinimo.getText());
+        Boolean estado= jcEstado.isSelected();
+        
+        
+       if(productoActual==null){
+           productoActual=new Producto(nombreProducto,descripcion,precioActual,stock,estado,stockMinimo);
+           
+           producData.guardarProducto(productoActual);
+       }else{
+           productoActual.setNombreProducto(nombreProducto);
+           productoActual.setDescripcion(descripcion);
+           productoActual.setPrecioActual(precioActual);
+           productoActual.setStock(stock);
+           productoActual.setStockMinimo(stockMinimo);
+           
+           producData.modificarProducto(productoActual);
+       }
+           
+    }//GEN-LAST:event_jbAgregarActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+       if(productoActual!=null){
+           producData.eliminarProductoId(productoActual.getIdProducto());
+           productoActual=null;
+           limpiarCampos();
+       }else{
+           JOptionPane.showMessageDialog(this, "No hay un producto seleccionado");
+       }
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+            dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

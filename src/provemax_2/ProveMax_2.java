@@ -31,17 +31,17 @@ public class ProveMax_2 {
         // Trabajamos con la tabla productos
      
 //        Producto Televisor = new Producto("Televisor Sony ", "Ultra HD 50 pulgadas ", 280000.00, 18, true, 3);
-//        ProductoData product = new ProductoData();
+       ProductoData product = new ProductoData();
 //        product.modificarProducto(Televisor);
 //       product.guardarProducto(Televisor);
 
-//      Producto productoEnco= product.buscarProductoPorId(2); 
-//        System.out.println("nombre "+ productoEnco.toString()); 
+      Producto productoEnco= product.buscarProductoPorId(4); 
+        System.out.println("nombre "+ productoEnco.toString()); 
 
 //        Producto productoEnco = product.buscarProductosPorNombre("lavarropas Whirpool");
 //        if (productoEnco != null) {
 //            System.out.println("nombre " + productoEnco.toString());
-//        }    }else{
+//        }    else{
 //            System.out.println("No se encontro proveedor con ese codigo");
 //        }
 
@@ -59,6 +59,15 @@ public class ProveMax_2 {
 //              System.out.println(" Stock minimo del producto : " + producto.getStockMinimo());
 //            System.out.println("-------------------------------------------------------------------");
 //        }
+
+
+
+//              ProductoData produ = new ProductoData();
+//           produ.eliminarProductoId(1);
+//           if (produ != null) {
+//               System.out.println("El producto ha sido dado de baja correctamente");
+//           }
+
 
 
 
@@ -110,12 +119,12 @@ public class ProveMax_2 {
 // 
 
 //           ProveedorData prove = new ProveedorData();
-//           prove.eliminarProveedorId(8);
+//           prove.eliminarProveedorId(2);
 //           if (prove != null) {
 //               System.out.println("El provedor ha sido dado de baja correctamente");
 //           }
-//           
-//
+           
+
 //           ProveedorData prove = new ProveedorData();  // ver esta funcion
 //           Proveedor prov = new Proveedor(2, "Easy", "España 234" , "2345678", true, 345678);
 //           prove.eliminarProveedor(prov);
@@ -232,20 +241,20 @@ public class ProveMax_2 {
 //              System.out.println("Detalle guardado correctamente");
 //            
 //        } 
-          
-        CompraData comData = new CompraData();  //lista detalle de compra
-        ProveedorData provData = new ProveedorData();
-        DetalleCompraData detaData = new DetalleCompraData();
-        Compra compra = new Compra();
-        for (DetalleCompra deta : detaData.listarDetallePorCompra()) {
-            System.out.println("Id de detalle de compra : " + deta.getIdDetalle());
-            System.out.println("Cantidad  : " + deta.getCantidad());
-            System.out.println("Precio de  Costo: " + deta.getPrecioCosto());
-            System.out.println("Id de compra: " + deta.getCompra().getIdCompra());
-            System.out.println("Id de producto: " + deta.getProducto().getIdProducto());
-            System.out.println("------------------------------------------------------------------------------");
-        }
-          
+//          
+//        CompraData comData = new CompraData();  //lista detalle de compra
+//        ProveedorData provData = new ProveedorData();
+//        DetalleCompraData detaData = new DetalleCompraData();
+//        Compra compra = new Compra();
+//        for (DetalleCompra deta : detaData.listarDetallePorCompra()) {
+//            System.out.println("Id de detalle de compra : " + deta.getIdDetalle());
+//            System.out.println("Cantidad  : " + deta.getCantidad());
+//            System.out.println("Precio de  Costo: " + deta.getPrecioCosto());
+//            System.out.println("Id de compra: " + deta.getCompra().getIdCompra());
+//            System.out.println("Id de producto: " + deta.getProducto().getIdProducto());
+//            System.out.println("------------------------------------------------------------------------------");
+//        }
+//          
   
 
 //        DetalleCompraData detaData = new DetalleCompraData();

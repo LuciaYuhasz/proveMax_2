@@ -215,5 +215,24 @@ public class ProductoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a tabla producto" + ex.getMessage());
         }
         return productos; 
-    } 
+    }
+        
+        
+         public void eliminarProductoId(int id){ // elimino producto sentencia update
+       String sql= " UPDATE producto SET estado = 0 where idProducto=? ";
+        try {
+            PreparedStatement ps= con.prepareStatement(sql);
+            
+            ps.setInt(1,id);
+            int modificado=ps.executeUpdate();
+           
+            if (modificado == 1) {
+                JOptionPane.showMessageDialog(null,"producto Sin Stock");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a tabla producto" + ex.getMessage());
+        }
+   }
 }
+
+
