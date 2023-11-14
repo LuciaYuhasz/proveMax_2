@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import provemax_2.entidades.Compra;
@@ -78,7 +79,20 @@ public class CompraData {
         return compra;
     }
     
-       
+       public void borrarCompraPorCompra(int idCompra) {
+    String sql = "UPDATE compra SET estado = 0 WHERE idCompra = ?";
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, idCompra);
+        int borrado = ps.executeUpdate();
+        if (borrado != 0) {
+            JOptionPane.showMessageDialog(null, "Compra borrada");
+        }
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla compra " + ex.getMessage());
+    }
+       }
        
     
       public ArrayList<Compra> listarComprasActivas(){ // funciona
@@ -126,6 +140,7 @@ public class CompraData {
         return compras;
        
     }
+
        
         public void borrarCompra(int idProveedor){  // funciona
         String sql = "UPDATE compra SET estado = 0  WHERE idProveedor=?";
@@ -140,6 +155,41 @@ public class CompraData {
          } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error al ingresar a la tabla compra " + ex.getMessage()); 
          }
+        }
+        
+    public ArrayList<Compra> obtenerComprasPorRangoFecha(LocalDate fechaInicio, LocalDate fechaFinal) {
+        ArrayList<Compra> comprasEnRango = new ArrayList<>();
+        String sql = "SELECT * FROM compra WHERE fecha BETWEEN ? AND ?";
+
+        try (PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setDate(1, java.sql.Date.valueOf(fechaInicio));
+            statement.setDate(2, java.sql.Date.valueOf(fechaFinal));
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                int idCompra = resultSet.getInt("idCompra");
+                int idProveedor = resultSet.getInt("idProveedor");
+                LocalDate fecha = resultSet.getDate("fecha").toLocalDate();
+                boolean estado = resultSet.getBoolean("estado");
+
+                // Lógica para obtener el objeto Proveedor asociado a través de ProveedorData
+                Proveedor proveedor = provData.buscarProveedorPorId(idCompra);
+
+                // Luego, creas un objeto Compra con los datos obtenidos
+                Compra compra = new Compra(idCompra, proveedor, fecha, estado);
+                comprasEnRango.add(compra);
+            }
+            }catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al conectar con la tabla compra: " + e.getMessage());
+        e.printStackTrace();
     }
+
+            return comprasEnRango;
+        }
+    }
+
+
+
+    
      
-}
+

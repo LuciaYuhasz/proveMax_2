@@ -133,14 +133,14 @@ public class ProveedorData {
         }
    }
      public void eliminarProveedor(Proveedor proveedor){ // elimino proveedor sentencia update
-       String sql= " UPDATE proveedor SET estado = 0 WHERE razonSocial=? ";
+       String sql= " UPDATE proveedor SET estado = 0 WHERE idProveedor= ? ";
         try {
             PreparedStatement ps= con.prepareStatement(sql);
             
             ps.setInt(1, proveedor.getIdProveedor());
             int modificado=ps.executeUpdate();
            
-            if (modificado == 1) {
+            if (modificado >0) {
                 JOptionPane.showMessageDialog(null,"proveedor inactivo");
             }
         } catch (SQLException ex) {
