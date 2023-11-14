@@ -57,28 +57,34 @@ public class Productos extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jtStockMinimo = new javax.swing.JTextField();
 
+        jPanel1.setBackground(new java.awt.Color(219, 247, 194));
+        jPanel1.setAlignmentX(0.5F);
+        jPanel1.setAlignmentY(0.5F);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion.png"))); // NOI18N
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, -1));
+        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
 
         jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/modificar.png"))); // NOI18N
         jbModificar.setText("Modificar");
-        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
+        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
 
+        jbNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(jbNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
+        jPanel1.add(jbNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
 
+        jbAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir.png"))); // NOI18N
         jbAgregar.setText("Agregar");
         jbAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,27 +100,26 @@ public class Productos extends javax.swing.JInternalFrame {
                 jbBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, -1, -1));
+        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
 
+        jlRegistroProductos.setFont(new java.awt.Font("Algerian", 3, 24)); // NOI18N
         jlRegistroProductos.setText("REGISTRO DE PRODUCTOS");
-        jPanel1.add(jlRegistroProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+        jPanel1.add(jlRegistroProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
 
-        jLabel1.setText("Codigo Producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        jLabel1.setText("CODIGO PRODUCTO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        jLabel2.setText("Nombre Producto");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        jLabel2.setText("NOMBRE PRODUCTO");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
-        jLabel3.setText("Descripcion");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jLabel3.setText("DESCRIPCION");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
-        jLabel4.setText("Precio Actual ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
-        jPanel1.add(jtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 240, -1));
-
-        jtNombreProducto.setText("televisor Sony");
+        jLabel4.setText("PRECIO ACTUAL");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+        jPanel1.add(jtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 250, -1));
         jPanel1.add(jtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 80, 250, -1));
-        jPanel1.add(jtDescripcionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 120, 250, -1));
+        jPanel1.add(jtDescripcionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 120, 270, -1));
         jPanel1.add(jtPrecioProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 160, 270, -1));
 
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-eliminar-50.png"))); // NOI18N
@@ -124,18 +129,18 @@ public class Productos extends javax.swing.JInternalFrame {
                 jbEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 130, 40));
+        jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 130, 40));
 
         jcEstado.setText("Estado");
         jPanel1.add(jcEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
-        jLabel7.setText("Stock");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-        jPanel1.add(jtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 170, -1));
+        jLabel7.setText("STOCK");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        jPanel1.add(jtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 110, -1));
 
-        jLabel6.setText("Stock Minimo");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
-        jPanel1.add(jtStockMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, -1));
+        jLabel6.setText("STOCK MINIMO");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+        jPanel1.add(jtStockMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 110, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,6 +187,31 @@ public class Productos extends javax.swing.JInternalFrame {
          
         }}
         
+    
+    
+    
+    
+//    try{
+//            Integer idProducto=Integer.parseInt(jtCodigoProducto.getText());
+//        
+//        productoActual=producData.buscarProductoPorId(idProducto);
+//        if(productoActual!=null){
+//            
+//            
+//            jtNombreProducto.setText(productoActual.getNombreProducto());
+//            jtDescripcionProducto.setText(productoActual.getDescripcion());
+//            
+//            jtPrecioProducto.setText(String.valueOf(productoActual.getPrecioActual()));
+//             
+//            jtStock.setText(String.valueOf(productoActual.getStock()));
+//            
+//            jtStockMinimo.setText(String.valueOf(productoActual.getStockMinimo()));
+//            
+//            jcEstado.setSelected(productoActual.isEstado());
+//        }
+//        }catch(NumberFormatException ex){
+//                JOptionPane.showMessageDialog(null,"Debe ingresar un numero valido");
+//}
         private void limpiarCampos(){
             
         
