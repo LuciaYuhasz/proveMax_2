@@ -45,9 +45,6 @@ private Compra compActual = null;
     }
      
      
-     
-     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -247,7 +244,6 @@ private Compra compActual = null;
         }
         
         limpiarCampos();
-        
     }//GEN-LAST:event_jbAgregarActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
@@ -284,15 +280,12 @@ private Compra compActual = null;
     }//GEN-LAST:event_jbExitActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
-     if (compActual != null) {
+     if (compActual != null) { // funciona
         compData.borrarCompra(compActual.getIdCompra());
         compActual = null;
         limpiarCampos();  
 
-        // Obtener el proveedor seleccionado en el JComboBox
         Proveedor proveedorSeleccionado = (Proveedor) jcbProveedor.getSelectedItem();
-        
-        // Eliminar el proveedor seleccionado del JComboBox
         jcbProveedor.removeItem(proveedorSeleccionado);
 
         JOptionPane.showMessageDialog(this, "La compra se eliminó correctamente.");
