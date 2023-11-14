@@ -56,6 +56,7 @@ public class Productos extends javax.swing.JInternalFrame {
         jtStock = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jtStockMinimo = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(219, 247, 194));
         jPanel1.setAlignmentX(0.5F);
@@ -69,11 +70,11 @@ public class Productos extends javax.swing.JInternalFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
+        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 90, -1));
 
         jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/modificar.png"))); // NOI18N
         jbModificar.setText("Modificar");
-        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
+        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 120, 130, -1));
 
         jbNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
         jbNuevo.setText("Nuevo");
@@ -82,7 +83,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 jbNuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(jbNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
+        jPanel1.add(jbNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, -1, -1));
 
         jbAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir.png"))); // NOI18N
         jbAgregar.setText("Agregar");
@@ -91,7 +92,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 jbAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+        jPanel1.add(jbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lupa-30.png"))); // NOI18N
         jbBuscar.setText("Buscar");
@@ -100,27 +101,27 @@ public class Productos extends javax.swing.JInternalFrame {
                 jbBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
+        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 60, 130, -1));
 
         jlRegistroProductos.setFont(new java.awt.Font("Algerian", 3, 24)); // NOI18N
         jlRegistroProductos.setText("REGISTRO DE PRODUCTOS");
         jPanel1.add(jlRegistroProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
 
         jLabel1.setText("CODIGO PRODUCTO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         jLabel2.setText("NOMBRE PRODUCTO");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         jLabel3.setText("DESCRIPCION");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         jLabel4.setText("PRECIO ACTUAL");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
-        jPanel1.add(jtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 250, -1));
-        jPanel1.add(jtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 80, 250, -1));
-        jPanel1.add(jtDescripcionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 120, 270, -1));
-        jPanel1.add(jtPrecioProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 160, 270, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+        jPanel1.add(jtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 270, -1));
+        jPanel1.add(jtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 270, -1));
+        jPanel1.add(jtDescripcionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 270, -1));
+        jPanel1.add(jtPrecioProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 270, -1));
 
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-eliminar-50.png"))); // NOI18N
         jbEliminar.setText("Elimininar");
@@ -129,31 +130,41 @@ public class Productos extends javax.swing.JInternalFrame {
                 jbEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 130, 40));
+        jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, -1, 40));
 
         jcEstado.setText("Estado");
-        jPanel1.add(jcEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        jPanel1.add(jcEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, -1));
 
         jLabel7.setText("STOCK");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
-        jPanel1.add(jtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 110, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
+        jPanel1.add(jtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 110, -1));
 
         jLabel6.setText("STOCK MINIMO");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
-        jPanel1.add(jtStockMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 110, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, -1, -1));
+        jPanel1.add(jtStockMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 110, -1));
+
+        jButton1.setText("Buscar por nombre");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -191,27 +202,6 @@ public class Productos extends javax.swing.JInternalFrame {
     
     
     
-//    try{
-//            Integer idProducto=Integer.parseInt(jtCodigoProducto.getText());
-//        
-//        productoActual=producData.buscarProductoPorId(idProducto);
-//        if(productoActual!=null){
-//            
-//            
-//            jtNombreProducto.setText(productoActual.getNombreProducto());
-//            jtDescripcionProducto.setText(productoActual.getDescripcion());
-//            
-//            jtPrecioProducto.setText(String.valueOf(productoActual.getPrecioActual()));
-//             
-//            jtStock.setText(String.valueOf(productoActual.getStock()));
-//            
-//            jtStockMinimo.setText(String.valueOf(productoActual.getStockMinimo()));
-//            
-//            jcEstado.setSelected(productoActual.isEstado());
-//        }
-//        }catch(NumberFormatException ex){
-//                JOptionPane.showMessageDialog(null,"Debe ingresar un numero valido");
-//}
         private void limpiarCampos(){
             
         
@@ -274,8 +264,28 @@ public class Productos extends javax.swing.JInternalFrame {
             dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+          try{
+              String nombreProducto=(jtNombreProducto.getText());
+              productoActual=producData.buscarProductosPorNombre(nombreProducto);
+              if(productoActual!=null){
+                  jtCodigoProducto.setText(String.valueOf(productoActual.getIdProducto()));
+                  jtDescripcionProducto.setText(productoActual.getDescripcion());
+                  jtPrecioProducto.setText(String.valueOf(productoActual.getPrecioActual()));
+                  jtStock.setText(String.valueOf(productoActual.getStock()));
+                  jtStockMinimo.setText(String.valueOf(productoActual.getStockMinimo()));
+                  jcEstado.setSelected(productoActual.isEstado());
+        }
+        }catch(Exception e){
+                JOptionPane.showMessageDialog(null,"Debe ingresar una palabra");
+    }                                          
+              
+           
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
