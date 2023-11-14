@@ -62,6 +62,11 @@ public class Compra {
         this.estado = estado;
     }
 
+    @Override
+    public String toString() {
+        return idCompra + ", " + proveedor ;
+    }
+
     
     
     

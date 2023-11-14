@@ -84,7 +84,7 @@ private float cuit;
 
     @Override
     public String toString() {
-        return  "idProveedor=" + idProveedor + ", razonSocial=" + razonSocial + ", domicilio=" + domicilio + ", telefono=" + telefono + ", estado=" + estado + ", cuit=" + cuit ;
+        return  " id :" + idProveedor + "  , razon social : " + razonSocial + " , cuit : " + cuit ;
     }
     
 

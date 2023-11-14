@@ -16,10 +16,7 @@ import javax.swing.JOptionPane;
 import provemax_2.entidades.Compra;
 import provemax_2.entidades.Proveedor;
 
-/**
- *
- * @author Usuario
- */
+
 public class CompraData {
     
     private ProductoData prodData = new ProductoData();
@@ -45,11 +42,11 @@ public class CompraData {
             ps.setBoolean(3, true);
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
-            int idCompra;
+            
             if (rs.next()) {
-                idCompra= rs.getInt(1);
-                compra.setIdCompra(idCompra);
-                JOptionPane.showMessageDialog(null, "Compra  agregada exitosamente");
+                int generatedId = rs.getInt(1);
+                compra.setIdCompra(generatedId);
+                JOptionPane.showMessageDialog(null, "Compra  agregada exitosamente con ID : " + generatedId);
                  }
             ps.close();
             

@@ -191,7 +191,7 @@ public class Menu extends javax.swing.JFrame {
     private void jrmProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmProveedorActionPerformed
         jDesktopPane1.removeAll();
         jDesktopPane1.repaint();
-        Proveedor pro = new Proveedor();
+        Proveedores pro = new Proveedores();
         pro.setVisible(true);
         jDesktopPane1.add(pro);
         jDesktopPane1.moveToFront(pro);
@@ -200,7 +200,7 @@ public class Menu extends javax.swing.JFrame {
     private void jrmCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmCompraActionPerformed
         jDesktopPane1.removeAll();
         jDesktopPane1.repaint();
-        Compra comp = new Compra();
+        Compras comp = new Compras();
         comp.setVisible(true);
         jDesktopPane1.add(comp);
         jDesktopPane1.moveToFront(comp);

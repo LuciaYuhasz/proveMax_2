@@ -1,22 +1,67 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package provemax_2.vistas;
 
-/**
- *
- * @author marus
- */
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import provemax_2.accesoDatos.ProveedorData;
+import provemax_2.entidades.Proveedor;
+
+
 public class ListadoProveedor extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ListadoProveedor
-     */
+   private ProveedorData provData;
+    private DefaultTableModel modelo;
+    
     public ListadoProveedor() {
         initComponents();
         this.setTitle("Listado Proveedores ");
+        provData = new ProveedorData();
+        modelo = new DefaultTableModel();
+        
+        armarCabecera();
     }
+    
+    private void armarCabecera() { // armo la cabecera de mi tabla
+        ArrayList<Object> filaCabecera = new ArrayList<>();
+        filaCabecera.add("id");
+        filaCabecera.add("cuit");
+        filaCabecera.add("razon social");
+        filaCabecera.add("domicilio");
+        filaCabecera.add("telefono");
+        for (Object it : filaCabecera) {
+            modelo.addColumn(it);
+        }
+        jtProveedor.setModel(modelo);
+    }
+    
+     private void limpiarTabla() {
+        // Limpiar todas las filas de la tabla
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+    }
+
+    
+     private void actualizarTabla(boolean esActivo) {
+        // Limpiar la tabla antes de actualizarla
+        limpiarTabla();
+
+        // Obtener la lista de proveedores según el estado seleccionado
+        ArrayList<Proveedor> listaProveedores = esActivo ? provData.listarProveedores() : provData.listarProveedoresInactivos();
+
+        // Agregar filas a la tabla
+        for (Proveedor proveedor : listaProveedores) {
+            modelo.addRow(new Object[]{
+                proveedor.getIdProveedor(),
+                proveedor.getCuit(),
+                proveedor.getRazonSocial(),
+                proveedor.getDomicilio(),
+                proveedor.getTelefono()
+            });
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,13 +74,16 @@ public class ListadoProveedor extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jtProveedor = new javax.swing.JTable();
+        jbActualizar = new javax.swing.JButton();
+        jbExit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jrbProveedorInactivo = new javax.swing.JRadioButton();
+        jrbProveedorActivo = new javax.swing.JRadioButton();
 
         jPanel1.setBackground(new java.awt.Color(219, 247, 194));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtProveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -46,36 +94,81 @@ public class ListadoProveedor extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtProveedor);
 
-        jButton1.setText("jButton1");
+        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir.png"))); // NOI18N
+        jbActualizar.setText("ACTUALIZAR");
+        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("jButton2");
+        jbExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cerrar-ventana-20.png"))); // NOI18N
+        jbExit.setText("EXIT");
+        jbExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbExitActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Algerian", 3, 24)); // NOI18N
+        jLabel1.setText("LISTADO DE PROVEEDORES");
+
+        jrbProveedorInactivo.setText("Proveedores Inactivos");
+        jrbProveedorInactivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbProveedorInactivoActionPerformed(evt);
+            }
+        });
+
+        jrbProveedorActivo.setText("Proveedores Activos");
+        jrbProveedorActivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbProveedorActivoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jButton1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(176, 176, 176)
+                .addComponent(jbActualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(39, 39, 39))
+                .addComponent(jbExit, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(141, 141, 141))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(213, 213, 213))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(142, 142, 142)
+                .addComponent(jrbProveedorActivo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jrbProveedorInactivo)
+                .addGap(154, 154, 154))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jrbProveedorActivo)
+                    .addComponent(jrbProveedorInactivo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbActualizar)
+                    .addComponent(jbExit))
                 .addGap(21, 21, 21))
         );
 
@@ -93,12 +186,39 @@ public class ListadoProveedor extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jrbProveedorActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbProveedorActivoActionPerformed
+        actualizarTabla(true);
+    }//GEN-LAST:event_jrbProveedorActivoActionPerformed
+
+    private void jrbProveedorInactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbProveedorInactivoActionPerformed
+        actualizarTabla(false);
+    }//GEN-LAST:event_jrbProveedorInactivoActionPerformed
+
+    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
+        // Botón "Actualizar" presionado
+        if (jrbProveedorActivo.isSelected()) {
+            // Actualizar tabla con proveedores activos
+            actualizarTabla(true);
+        } else if (jrbProveedorInactivo.isSelected()) {
+            // Actualizar tabla con proveedores inactivos
+            actualizarTabla(false);
+        }
+    }//GEN-LAST:event_jbActualizarActionPerformed
+
+    private void jbExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExitActionPerformed
+        dispose();
+         JOptionPane.showMessageDialog(this, "DESEA REGRESAR A LA PAGINA PRINCIPAL");
+    }//GEN-LAST:event_jbExitActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton jbActualizar;
+    private javax.swing.JButton jbExit;
+    private javax.swing.JRadioButton jrbProveedorActivo;
+    private javax.swing.JRadioButton jrbProveedorInactivo;
+    private javax.swing.JTable jtProveedor;
     // End of variables declaration//GEN-END:variables
 }

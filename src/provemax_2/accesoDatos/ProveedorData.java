@@ -45,7 +45,7 @@ public class ProveedorData {
             ps.close();
         
         }catch (SQLException ex){
-            JOptionPane.showMessageDialog(null, "Error al acceder a tabla Proveedor" + ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Cuit ya utilizado, ingrese uno nuevo");
         }
    }
       
@@ -98,7 +98,7 @@ public class ProveedorData {
                
                 proveedor.setEstado(true);
             }else{
-                JOptionPane.showMessageDialog(null,"Proveedor No encontrado");
+//                JOptionPane.showMessageDialog(null,"Proveedor No encontrado");
                 ps.close();
             }
         } catch (SQLException ex) {

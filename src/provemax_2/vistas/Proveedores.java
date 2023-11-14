@@ -1,21 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package provemax_2.vistas;
 
 import javax.swing.JOptionPane;
 import provemax_2.accesoDatos.ProveedorData;
+import provemax_2.entidades.Proveedor;
 
-/**
- *
- * @author marus
- */
-public class Proveedor extends javax.swing.JInternalFrame {
+
+
+public class Proveedores extends javax.swing.JInternalFrame {
       private ProveedorData provData = new ProveedorData();
       private Proveedor provActual = null;
               
-    public Proveedor() {
+    public Proveedores() {
         initComponents();
         this.setTitle("PROVEEDOR");
     }
@@ -56,7 +52,6 @@ public class Proveedor extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jrbEstado = new javax.swing.JRadioButton();
         jbAgregar = new javax.swing.JButton();
-        jbModificar = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jbExit = new javax.swing.JButton();
@@ -84,6 +79,11 @@ public class Proveedor extends javax.swing.JInternalFrame {
         jLabel6.setText("TELEFONO :");
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lupa-30.png"))); // NOI18N
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel7.setText("ESTADO :");
@@ -170,16 +170,23 @@ public class Proveedor extends javax.swing.JInternalFrame {
             }
         });
 
-        jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-carpeta-de-documentos-25.png"))); // NOI18N
-        jbModificar.setText("MODIFICAR");
-
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-comprobado.gif"))); // NOI18N
         jbEliminar.setText("ELIMINAR");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-código-qr.gif"))); // NOI18N
 
         jbExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cerrar-ventana-20.png"))); // NOI18N
         jbExit.setText("EXIT");
+        jbExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbExitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -187,25 +194,23 @@ public class Proveedor extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(97, 97, 97))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jbAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jbModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbExit, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(252, 252, 252)
+                        .addComponent(jLabel1)
+                        .addContainerGap(327, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(310, 310, 310)
-                        .addComponent(jLabel1)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addGap(97, 97, 97))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jbAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(112, 112, 112)
+                        .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbExit, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,10 +222,9 @@ public class Proveedor extends javax.swing.JInternalFrame {
                 .addGap(18, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbAgregar)
-                    .addComponent(jbModificar)
                     .addComponent(jbEliminar)
                     .addComponent(jbExit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                .addGap(26, 26, 26))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(142, 142, 142)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -242,35 +246,102 @@ public class Proveedor extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
-//        try {
-//            
-//        Float cuit = Integer.parseInt(jtfCuit.getText());
-//        String razonSocial = jtfRazonSocial.getText();
-//        String domicilio = jtfDomicilio.getText();
-//        if (razonSocial.isEmpty()|| domicilioisEmpty()) {
-//            JOptionPane.showMessageDialog(this,"NO SE ACEPTAN CAMPOS VACIOS"); 
-//        }
-//        
-//       Boolean estado = jrbEstado.isSelected();
-//        if (provActual== null) {
-//            provActual= new Proveedor(cuit,razonSocial,domicilio,telefono,estado); 
-//            provData.guardarProveedor(provActual);
-//        }else{
-//            provActual.setCuit(cuit);
-//            provActual.setRazonSocial(razonSocial);
-//            provActual.setDomicilio(domicilio);
-//            provActual.setTelefono(telefono);
-//            provData.modificarProveedor(provActual);
-//        }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(this,"Debe ingresar solo  números");
-//        }
-//        
+
+        try { // funciona
+
+            Float cuit = Float.valueOf(jtfCuit.getText());
+            String razonSocial = jtfRazonSocial.getText();
+            String domicilio = jtfDomicilio.getText();
+            String telefono = jtfTelefono.getText();
+            if (razonSocial.isEmpty() || domicilio.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "NO SE ACEPTAN CAMPOS VACIOS");
+            return;
+            }
+
+
+            Boolean estado = true;
+            if (provActual == null) {
+            
+               Proveedor provActual = new Proveedor();
+                 provActual.setCuit(cuit);
+                provActual.setRazonSocial(razonSocial);
+                provActual.setDomicilio(domicilio);
+                provActual.setTelefono(telefono);
+                provActual.setEstado(estado);
+                provData.guardarProveedor(provActual);
+
+            } else {
+                provActual.setCuit(cuit);
+                provActual.setRazonSocial(razonSocial);
+                provActual.setDomicilio(domicilio);
+                provActual.setTelefono(telefono);
+                provActual.setEstado(estado);
+                provData.modificarProveedor(provActual);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar solo números en el campo 'Cuit'");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar o modificar el proveedor");
+        }
         
-//        limpiarCampos();
-        
-        
+
+        limpiarCampos();
     }//GEN-LAST:event_jbAgregarActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+         
+        try { // funciona
+            String razonSocial=(jtfRazonSocial.getText());
+            provActual=provData.buscarProveedorPorNombre(razonSocial);
+            if (provActual!=null) {
+                jtfIdProveedor.setText(String.valueOf(provActual.getIdProveedor()));
+                jtfCuit.setText(String.valueOf(provActual.getCuit()));
+                jtfRazonSocial.setText(provActual.getRazonSocial());
+                jtfDomicilio.setText(provActual.getDomicilio());
+                jtfTelefono.setText(provActual.getTelefono());
+                jrbEstado.setSelected(provActual.isEstado());
+     
+            }else{
+                JOptionPane.showMessageDialog(null,"Proveedor No encontrado");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,"DEBE INGRESAR UNA PALABRA EN ESTE CAMPO ");
+        }
+        limpiarCampos();
+        
+        try { // funciona 
+            Integer idProveedor= Integer.parseInt(jtfIdProveedor.getText());
+            provActual=provData.buscarProveedorPorId(idProveedor);
+            if (provActual!=null) {
+                jtfIdProveedor.setText(String.valueOf(provActual.getIdProveedor()));
+                jtfCuit.setText(String.valueOf(provActual.getCuit()));
+                jtfRazonSocial.setText(provActual.getRazonSocial());
+                jtfDomicilio.setText(provActual.getDomicilio());
+                jtfTelefono.setText(provActual.getTelefono());
+                jrbEstado.setSelected(provActual.isEstado());
+     
+            }
+        } catch (NumberFormatException ex ) {
+            JOptionPane.showMessageDialog(this,"DEBE INGRESAR UN NUMERO EN ESE CAMPO ");
+        }
+          limpiarCampos();  
+    }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+
+            if (provActual!= null) { // funciona
+          provData.eliminarProveedorId(provActual.getIdProveedor());
+            provActual=null;
+            limpiarCampos();  
+        }else{
+            JOptionPane.showInternalMessageDialog(this, "NO SE SELECCIONO NINGUN ALUMNO");
+        }
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExitActionPerformed
+         dispose();
+         JOptionPane.showMessageDialog(this, "DESEA REGRESAR A LA PAGINA PRINCIPAL");
+    }//GEN-LAST:event_jbExitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -288,7 +359,6 @@ public class Proveedor extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbExit;
-    private javax.swing.JButton jbModificar;
     private javax.swing.JRadioButton jrbEstado;
     private javax.swing.JTextField jtfCuit;
     private javax.swing.JTextField jtfDomicilio;
