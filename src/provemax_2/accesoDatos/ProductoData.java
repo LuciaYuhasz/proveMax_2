@@ -71,6 +71,8 @@ public class ProductoData {
                 producto= new Producto();
                 producto.setIdProducto(id);
                 producto.setNombreProducto(rs.getString("nombreProducto"));
+                producto.setDescripcion(rs.getString("descripcion"));
+                
                 producto.setPrecioActual(rs.getDouble("precioActual"));
                 producto.setStock(rs.getInt("stock"));
                 producto.setEstado(true);

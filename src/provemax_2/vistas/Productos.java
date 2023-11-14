@@ -163,14 +163,15 @@ public class Productos extends javax.swing.JInternalFrame {
         if(productoActual!=null){
             
             
-             jtNombreProducto.setText(productoActual.getNombreProducto());
+            jtNombreProducto.setText(productoActual.getNombreProducto());
             jtDescripcionProducto.setText(productoActual.getDescripcion());
             
+            jtPrecioProducto.setText(String.valueOf(productoActual.getPrecioActual()));
+             
+            jtStock.setText(String.valueOf(productoActual.getStock()));
             
-            double precioActual = Double.parseDouble(jtPrecioProducto.getText());
+            jtStockMinimo.setText(String.valueOf(productoActual.getStockMinimo()));
             
-            int stock= Integer.parseInt(jtStock.getText());
-            int stockMinimo= Integer.parseInt(jtStockMinimo.getText());
             jcEstado.setSelected(productoActual.isEstado());
         }
         }catch(NumberFormatException ex){
