@@ -53,7 +53,6 @@ public class Menu extends javax.swing.JFrame {
         jrmListadoCompra = new javax.swing.JRadioButtonMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jrmDetalle = new javax.swing.JRadioButtonMenuItem();
-        jrmListadoDetalle = new javax.swing.JRadioButtonMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jrmExit = new javax.swing.JRadioButtonMenuItem();
 
@@ -171,15 +170,6 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(jrmDetalle);
 
-        jrmListadoDetalle.setSelected(true);
-        jrmListadoDetalle.setText("Listado Detalles");
-        jrmListadoDetalle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrmListadoDetalleActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jrmListadoDetalle);
-
         jMenuBar1.add(jMenu4);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion.png"))); // NOI18N
@@ -265,15 +255,6 @@ public class Menu extends javax.swing.JFrame {
         jDesktopPane1.moveToFront(listcomp);
     }//GEN-LAST:event_jrmListadoCompraActionPerformed
 
-    private void jrmListadoDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmListadoDetalleActionPerformed
-        jDesktopPane1.removeAll();
-        jDesktopPane1.repaint();
-        ListadoDetalle listdeta = new ListadoDetalle();
-        listdeta.setVisible(true);
-        jDesktopPane1.add(listdeta);
-        jDesktopPane1.moveToFront(listdeta);
-    }//GEN-LAST:event_jrmListadoDetalleActionPerformed
-
     private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
      jDesktopPane1.removeAll();
      jDesktopPane1.repaint();
@@ -348,7 +329,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jrmDetalle;
     private javax.swing.JRadioButtonMenuItem jrmExit;
     private javax.swing.JRadioButtonMenuItem jrmListadoCompra;
-    private javax.swing.JRadioButtonMenuItem jrmListadoDetalle;
     private javax.swing.JRadioButtonMenuItem jrmListadoProveedor;
     private javax.swing.JRadioButtonMenuItem jrmProveedor;
     // End of variables declaration//GEN-END:variables
