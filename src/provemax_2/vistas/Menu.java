@@ -44,6 +44,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jrListaProductos = new javax.swing.JRadioButtonMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jrmProveedor = new javax.swing.JRadioButtonMenuItem();
         jrmListadoProveedor = new javax.swing.JRadioButtonMenuItem();
@@ -83,6 +84,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/producto.png"))); // NOI18N
         jMenu1.setText("Producto");
         jMenu1.setFont(new java.awt.Font("Arial Rounded MT Bold", 2, 12)); // NOI18N
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("Productos");
@@ -92,6 +98,15 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jRadioButtonMenuItem1);
+
+        jrListaProductos.setSelected(true);
+        jrListaProductos.setText("Lista de Productos");
+        jrListaProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrListaProductosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jrListaProductos);
 
         jMenuBar1.add(jMenu1);
 
@@ -269,6 +284,20 @@ public class Menu extends javax.swing.JFrame {
      
     }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
 
+    private void jrListaProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrListaProductosActionPerformed
+       
+     jDesktopPane1.removeAll();
+     jDesktopPane1.repaint();
+     ListadoProductos produ=new ListadoProductos();
+     produ.setVisible(true);
+     jDesktopPane1.add(produ);
+     jDesktopPane1.moveToFront(produ);
+    }//GEN-LAST:event_jrListaProductosActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -314,6 +343,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jrListaProductos;
     private javax.swing.JRadioButtonMenuItem jrmCompra;
     private javax.swing.JRadioButtonMenuItem jrmDetalle;
     private javax.swing.JRadioButtonMenuItem jrmExit;

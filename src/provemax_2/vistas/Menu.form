@@ -14,6 +14,9 @@
               <Font name="Arial Rounded MT Bold" size="12" style="2"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu1ActionPerformed"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem1">
               <Properties>
@@ -22,6 +25,15 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jrListaProductos">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Lista de Productos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrListaProductosActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

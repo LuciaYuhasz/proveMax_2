@@ -68,7 +68,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 90, -1));
+        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, 90, -1));
 
         jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/modificar.png"))); // NOI18N
         jbModificar.setText("Modificar");
@@ -86,7 +86,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 jbNuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(jbNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
+        jPanel1.add(jbNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, -1, -1));
 
         jbAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir.png"))); // NOI18N
         jbAgregar.setText("Agregar");
@@ -95,7 +95,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 jbAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
+        jPanel1.add(jbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lupa-30.png"))); // NOI18N
         jbBuscar.setText("Buscar");
@@ -108,7 +108,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
         jlRegistroProductos.setFont(new java.awt.Font("Algerian", 3, 24)); // NOI18N
         jlRegistroProductos.setText("REGISTRO DE PRODUCTOS");
-        jPanel1.add(jlRegistroProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
+        jPanel1.add(jlRegistroProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
 
         jLabel1.setText("CODIGO PRODUCTO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
@@ -136,7 +136,7 @@ public class Productos extends javax.swing.JInternalFrame {
         jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, -1, 40));
 
         jcEstado.setText("Estado");
-        jPanel1.add(jcEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, -1));
+        jPanel1.add(jcEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
 
         jLabel7.setText("STOCK");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
